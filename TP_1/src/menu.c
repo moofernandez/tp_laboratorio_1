@@ -13,8 +13,8 @@ int menu(float kilometros, float precioLatam,float precioAero){
 	int opcion;
 
 	printf("\n\n ----------Menu de opciones----------\n");
-	printf("\n 1. Ingresar Kilometros. km = %f ",kilometros);
-	printf("\n 2. Ingresar Precio de Vuelos. Aerolineas = %f y Latam = %f ", precioLatam, precioAero);
+	printf("\n 1. Ingresar Kilometros. km = %.2f ",kilometros);
+	printf("\n 2. Ingresar Precio de Vuelos. Aerolineas = %.2f y Latam = %.2f ", precioLatam, precioAero);
 	printf("\n 3. Calcular todos los costos. ");
 	printf("\n 4. Informar Resultados. ");
 	printf("\n 5. Carga forzada de datos. ");
@@ -93,7 +93,7 @@ float calcularLatam(float precioLatam,float km, int a){
 			break;
 
 		case 3:
-			bitcoinLat= 4606954.55 / (precioLatam * 100); // calculo precio x bitcoin
+			bitcoinLat= precioLatam / 4606954.55  ; // calculo precio x bitcoin
 			valorRetornar = bitcoinLat;
 			break;
 
@@ -123,7 +123,7 @@ float calcularAero(float precioAero, float km, int b){
 			valorRetornar = creditoAero;
 			break;
 		case 3:
-			bitcoinAero = 4606954.55 / (precioAero * 100); // calculo precio x bitcoin
+			bitcoinAero = precioAero / 4606954.55; // calculo precio x bitcoin
 			valorRetornar = bitcoinAero;
 			break;
 		case 4:
@@ -151,18 +151,18 @@ void mostrar(float precioLatam, float precioAero,float debitoLat, float creditoL
 
 	// imprimir por consola todos los datos ingresados y calculados
 
-	printf ("\n Latam:  $ %2.f ", precioLatam);
-	printf ("\n a) Precio con tarjeta de debito: $ %f ",debitoLat);
-	printf ("\n b) Precio con tarjeta de credito: $ %f ",creditoLat);
+	printf ("\n Latam:  $ %.2f ", precioLatam);
+	printf ("\n a) Precio con tarjeta de debito: $ %.2f ",debitoLat);
+	printf ("\n b) Precio con tarjeta de credito: $ %.2f ",creditoLat);
 	printf ("\n c) Precio pagando con bitcoin: $ %f ",bitcoinLat);
 	printf ("\n d) Precio unitario: %2.f  ",precioUnitarioLat);
 
-	printf ("\n \n Aerolineas Argentinas: $ %f ", precioAero);
-	printf ("\n a) Precio con tarjeta de debito: $ %f ",debitoAero);
-	printf ("\n b) Precio con tarjeta de credito: $ %f ",creditoAero);
+	printf ("\n \n Aerolineas Argentinas: $ %.2f ", precioAero);
+	printf ("\n a) Precio con tarjeta de debito: $ %.2f ",debitoAero);
+	printf ("\n b) Precio con tarjeta de credito: $ %.2f ",creditoAero);
 	printf ("\n c) Precio pagando con bitcoin: $ %f ",bitcoinAero);
-	printf ("\n d) Precio unitario: $ %2.f ",precioUnitarioAero);
+	printf ("\n d) Precio unitario: $ %.2f ",precioUnitarioAero);
 
-	printf("\n La diferencia de precio es de $ %f ",diferencia);
+	printf("\n La diferencia de precio es de $ %.2f ",diferencia);
 
 }

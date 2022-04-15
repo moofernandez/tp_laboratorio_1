@@ -27,13 +27,14 @@ setbuf(stdout,NULL);
 	int banderaPrimerCaso;
 	int banderaSegundoCaso;
 	int banderaTercerCaso;
-	int i;
 
 	opcion = 6;
-	i = 0;
 	banderaPrimerCaso = 0;
 	banderaSegundoCaso = 0;
 	banderaTercerCaso = 0;
+	kilometros = 0;
+	precioAero = 0;
+	precioLatam = 0;
 
    do{
 		opcion = menu(kilometros,precioAero,precioLatam);
@@ -106,7 +107,6 @@ setbuf(stdout,NULL);
 			mostrar(precioLatam, precioAero, debitoLat, creditoLat, bitcoinLat,precioUnitarioLat, debitoAero, creditoAero, bitcoinAero, precioUnitarioAero, diferencia);
 			break;
 		}
-		i++;
      }while(opcion != 6);
 
 	return 0;

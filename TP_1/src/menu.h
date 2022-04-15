@@ -15,7 +15,7 @@
  *
  * @return opcion
  */
-int menu();
+int menu(float kilometros, float precioLatam,float precioAero);
 
 /**
  * @fn float pedirKm()
