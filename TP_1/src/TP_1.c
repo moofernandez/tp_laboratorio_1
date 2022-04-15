@@ -6,8 +6,6 @@ El objetivo de la aplicacion es mostrar las diferentes opciones de pagos a sus c
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <windows.h>
 #include "menu.h"
 
 int main (void){
@@ -16,29 +14,29 @@ setbuf(stdout,NULL);
 	int opcion;
 	float kilometros;
 	float precioLatam;
-	float precioAero;
-	int banderaPrimerCaso;
-	int banderaSegundoCaso;
-	int banderaTercerCaso;
 	float debitoLat;
 	float creditoLat;
 	float bitcoinLat;
 	float precioUnitarioLat;
+	float precioAero;
 	float debitoAero;
 	float creditoAero;
 	float bitcoinAero;
 	float precioUnitarioAero;
 	float diferencia;
+	int banderaPrimerCaso;
+	int banderaSegundoCaso;
+	int banderaTercerCaso;
 	int i;
 
 	opcion = 6;
+	i = 0;
 	banderaPrimerCaso = 0;
 	banderaSegundoCaso = 0;
 	banderaTercerCaso = 0;
-	i = 0;
 
    do{
-		opcion = menu();
+		opcion = menu(kilometros,precioAero,precioLatam);
 
 		switch (opcion){
 
