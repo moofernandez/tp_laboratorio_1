@@ -6,6 +6,7 @@ El objetivo de la aplicacion es mostrar las diferentes opciones de pagos a sus c
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "menu.h"
 
 int main (void){
@@ -37,7 +38,9 @@ setbuf(stdout,NULL);
 	precioLatam = 0;
 
    do{
+		Sleep(2000);
 		opcion = menu(kilometros,precioAero,precioLatam);
+		Sleep(1000);
 
 		switch (opcion){
 
@@ -45,6 +48,8 @@ setbuf(stdout,NULL);
 			if (banderaPrimerCaso == 0){
 				kilometros= pedirKm(); // pedir km a traves de la funcion
 				banderaPrimerCaso = 1;
+			}else{
+				mensajeMostrar(3);
 			}
 			break;
 
@@ -53,13 +58,15 @@ setbuf(stdout,NULL);
 				precioLatam = pedirPrecioLatam(); // pedir precio a traves de la funcion
 				precioAero =  pedirPrecioAero();
 				banderaSegundoCaso = 1;
+			}else{
+				mensajeMostrar(3);
 			}
 			break;
 
 		case 3:       // Calcular costos
 			if (banderaTercerCaso == 0 && banderaPrimerCaso == 1 && banderaSegundoCaso == 1){ // solo entra cuando las banderas 1 y 2 estan llenas
-				printf(" \n ----Por favor espere se estan realizando los calculos de los costos---- \n ");
-				printf ("\n \t\t\t\t CARGANDO......\n");
+
+				mensajeMostrar(1);
 
 				debitoLat = calcularLatam(precioLatam, kilometros, 1); // calcula el costo de Latam, y segun el numero de (a) retorna un valor distinto
 				creditoLat = calcularLatam(precioLatam, kilometros, 2);
@@ -75,7 +82,7 @@ setbuf(stdout,NULL);
 
 				banderaTercerCaso = 1;
 			}else{
-				printf("\n Lo sentimos algo salio mal... Intentelo denuevo");
+				mensajeMostrar(2);
 			}
 			break;
 
@@ -83,7 +90,7 @@ setbuf(stdout,NULL);
 			if(banderaPrimerCaso == 1 && banderaSegundoCaso == 1 && banderaTercerCaso == 1){ // solo puede ingresar cuando la bandera1, la bandera2 y bandera3 esten llenas
 				mostrar(precioLatam, precioAero, debitoLat, creditoLat, bitcoinLat, precioUnitarioLat, debitoAero, creditoAero, bitcoinAero, precioUnitarioAero, diferencia);
 			}else {
-				printf("\n Lo sentimos algo salio mal... Intentelo denuevo");
+				mensajeMostrar(2);
 			}
 			break;
 
@@ -109,5 +116,7 @@ setbuf(stdout,NULL);
 		}
      }while(opcion != 6);
 
-	return 0;
+   	   mensajeMostrar(4);
+
+   return 0;
 }

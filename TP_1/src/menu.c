@@ -7,12 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 
 int menu(float kilometros, float precioLatam,float precioAero){
 
 	int opcion;
 
-	printf("\n\n ----------Menu de opciones----------\n");
+	printf("\n------------Menu de opciones----------\n");
 	printf("\n 1. Ingresar Kilometros. km = %.2f ",kilometros);
 	printf("\n 2. Ingresar Precio de Vuelos. Aerolineas = %.2f y Latam = %.2f ", precioLatam, precioAero);
 	printf("\n 3. Calcular todos los costos. ");
@@ -98,7 +99,7 @@ float calcularLatam(float precioLatam,float km, int a){
 			break;
 
 		case 4:
-			precioUnitarioLat = precioLatam * km; // precio por km
+			precioUnitarioLat = precioLatam / km; // precio por km
 			valorRetornar = precioUnitarioLat;
 			break;
 	}
@@ -127,7 +128,7 @@ float calcularAero(float precioAero, float km, int b){
 			valorRetornar = bitcoinAero;
 			break;
 		case 4:
-			precioUnitarioAero = precioAero * km; // precio por km
+			precioUnitarioAero = precioAero / km; // precio por km
 			valorRetornar = precioUnitarioAero;
 			break;
 		}
@@ -165,4 +166,22 @@ void mostrar(float precioLatam, float precioAero,float debitoLat, float creditoL
 
 	printf("\n La diferencia de precio es de $ %.2f ",diferencia);
 
+}
+
+void mensajeMostrar(int c){
+
+	switch(c){
+		case 1:
+			printf(" \n ----Por favor espere se estan realizando los calculos de los costos---- \n ");
+			printf ("\n \t\t\t\t CARGANDO......\n");
+			break;
+		case 2:
+			printf("\n Lo sentimos algo salio mal... Intentelo denuevo");
+			break;
+		case 3:
+			printf("\n Usted ya no tiene que hacer nada aqui.. \n");
+			break;
+		case 4:
+			printf("\n Gracias por elegirnos!. Vuelva pronto");
+	}
 }

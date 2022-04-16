@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #ifndef MENU_H_
 #define MENU_H_
 
@@ -65,7 +66,7 @@ float calcularAero(float precioAero, float km, int b);
 
 /**
  * @fn float diferenciaLatamAero(float, float)
- * @brief Realiza la diferencia entre el precio de Latam y el de Aerolineas, en caso de que sea negativo se multiplica para que quede positivo
+ * @brief Realiza la diferencia entre el precio de Latam y el de Aerolineas, en caso de que sea negativo se multiplica para que la operacion positivo
  *
  * @param precioLatam
  * @param precioAero
@@ -91,5 +92,11 @@ float diferenciaLatamAero(float precioLatam, float precioAero);
  */
 void mostrar(float precioLatam, float precioAero, float debitoLat, float creditoLat, float bitcoinLat, float precioUnitarioLat, float debitoAero, float creditoAero, float bitcoinAero,  float precioUnitarioAero, float diferencia);
 
+/**
+ * @fn void mensajeMostrar(int)
+ * @brief Muestra distintos mensajes segun la opcion
+ * @param c
+ */
+void mensajeMostrar(int c);
 
 #endif /* MENU_H_ */
